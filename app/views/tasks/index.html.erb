@@ -2,9 +2,12 @@
 <%# <i class="far fa-square"></i> %>
 <%# <i class="far far-check-square"></i> %>
 
-<ul>
+<ul style="list-style: none;">
 <% @tasks.each do |task| %>
-<li><%= link_to task.title, task_path(task) %>
+<%= form_for task do |f|%>
+<%= f.check_box :completed, onchange: "this.form.submit()", value: task.completed %>
+<% end %>
+<%= link_to task.title, task_path(task) %>
 <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete #{task.title}"} %>
 </li>
 <% end %>

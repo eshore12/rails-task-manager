@@ -9,5 +9,9 @@
 <%= task.label :details %>
 <%= task.text_field :details %>
 </div>
+<div class="form-group">
+<%= task.label :completed %>
+<%= task.check_box :completed %>
+</div>
 <%= task.submit class: 'btn btn-primary' %>
 <% end %>
